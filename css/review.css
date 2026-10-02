@@ -1,0 +1,73 @@
+@import url("./variables.css");
+
+.review-section {
+  padding: 5rem 0;
+  background: transparent;
+}
+.review-head {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  margin-bottom: 0;
+}
+.review-header {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, var(--text-header));
+}
+.review-subhead {
+  font-family: var(--font-primary);
+  font-size: var(--sub-heading);
+  max-width: 650px;
+}
+.review-card-item {
+  background-color: rgba(var(--white), var(--cd-opacity)) !important;
+  border-radius: var(--cd-radius) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 2rem 1.5rem !important;
+  text-align: center;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+  width: 100%;
+  max-width: 380px;
+}
+.review-card-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 193, 7, 0.5) !important;
+}
+.traveller-img {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border: 2px solid var(--text-primary);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  /* object-position: top; */
+}
+
+.img-top {
+  object-position: top;
+}
+.traveller-name {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  margin-top: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-white);
+}
+.review-tour-type {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  margin-bottom: 0.75rem;
+}
+.review-desc {
+  font-family: var(--font-primary);
+  font-size: 17px;
+  color: var(--text-white);
+  margin-bottom: 0;
+  line-height: 1.5;
+}

@@ -1,0 +1,301 @@
+/* =====================================================================
+   ADDED: About page hero (desktop AND small devices)
+   - the image fits the screen width and is shown full (not cropped)
+   - the image sits UNDER the fixed navbar (72px = navbar height,
+     change --about-nav-h if your navbar is taller/shorter)
+   - the text is centered on the image and a bit smaller
+   Selectors start with #aboutUs so only the About page is affected.
+   ===================================================================== */
+#aboutUs {
+  --about-nav-h: 72px;
+}
+
+/* hero wrapper (the markup page_hero puts inside #aboutUs) */
+#aboutUs > * {
+  display: block;
+  position: relative;
+  height: auto;
+  min-height: 0;
+  padding-top: var(--about-nav-h);
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+/* image: in the normal flow, natural height, full width */
+#aboutUs .hero-image-container {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+}
+#aboutUs .home-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+/* text: laid over the image, centered vertically */
+#aboutUs .hero-text {
+  position: absolute;
+  top: var(--about-nav-h);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* smaller letters */
+#aboutUs .head-text {
+  font-size: clamp(22px, 4vw, 44px);
+  margin: 0 !important;
+}
+#aboutUs .sub-hero-text {
+  font-size: clamp(14px, 2vw, 22px);
+}
+#aboutUs .sub1-hero-text {
+  font-size: clamp(12px, 1.5vw, 18px);
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+#aboutUs .hero-buttons {
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+  margin-top: clamp(0.5rem, 1.5vw, 1.25rem);
+  padding-top: 0;
+  max-width: none;
+}
+#aboutUs .btn-about,
+#aboutUs .btn-book {
+  width: auto;
+  max-width: none;
+  height: clamp(32px, 3.4vw, 44px);
+  padding: 0 clamp(14px, 2vw, 28px);
+  font-size: clamp(12px, 1.3vw, 16px);
+  margin: 0 !important;
+}
+
+@media (max-width: 575.98px) {
+  #aboutUs .head-text {
+    font-size: 22px;
+  }
+  #aboutUs .sub-hero-text {
+    display: none;
+  }
+  #aboutUs .sub1-hero-text {
+    font-size: 12px;
+  }
+}
+
+/* =====================================================================
+   Original code below (unchanged)
+   ===================================================================== */
+
+.our-story {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+.our-story-head,
+.travel-tip-head {
+  font-family: var(--font-primary);
+  font-size: 20px;
+}
+.our-story-title,
+.travel-tip h4 {
+  font-family: var(--font-heading);
+  font-size: var(--text-header);
+  padding: 2rem 0;
+}
+.about-exist-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-exit-image img {
+  width: 100%;
+  height: 38rem;
+  object-fit: contain;
+  border-radius: 15px;
+  object-position: center;
+  padding-top: 3rem;
+}
+.our-story-text {
+  font-family: var(--font-primary);
+  font-size: var(--sub-heading);
+  text-align: justify;
+}
+
+.mission {
+  background-color: rgba(var(--white), var(--cd-opacity));
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mission p {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  padding-bottom: 30px;
+}
+.mission h4 {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  padding: 0 22%;
+  text-align: center;
+  line-height: 50px;
+}
+
+.travel-tip {
+  margin: 10rem 0;
+}
+
+.before-go-container {
+  padding: 3rem 3rem;
+  gap: 5rem;
+  border-bottom: 1px solid var(--text-primary);
+}
+.before-go-container .before-num {
+  width: 2rem;
+  font-family: var(--font-primary);
+  font-size: 25px;
+  color: var(--text-primary);
+}
+
+.before-go-info h5 {
+  font-family: var(--font-arbutus);
+  font-size: 30px;
+  padding-bottom: 1.5rem;
+}
+
+.before-go-info p {
+  font-family: var(--font-primary);
+  font-size: var(--sub-heading);
+}
+
+/* =====================================================================
+   RESPONSIVE  (everything above is your original code, untouched)
+   Breakpoints: 991 (tablet), 767 (large phone), 575 (phone)
+   ===================================================================== */
+
+/* keep the number from squashing and let the text column shrink */
+.before-go-container .before-num {
+  flex: 0 0 2rem;
+}
+.before-go-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* ---------- Tablets & below (< 992px) ---------- */
+@media (max-width: 991.98px) {
+  .our-story {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+  }
+  .our-story-title,
+  .travel-tip h4 {
+    font-size: clamp(1.75rem, 1.1rem + 2.6vw, var(--text-header));
+    padding: 1rem 0;
+  }
+  .about-exit-image img {
+    height: 28rem;
+    padding-top: 0;
+  }
+
+  .mission {
+    height: auto;
+    min-height: 16rem;
+    padding: 3rem 0;
+  }
+  .mission h4 {
+    font-size: clamp(1.35rem, 3.4vw, 2rem);
+    line-height: 1.5;
+    padding: 0 8%;
+  }
+  .mission p {
+    padding-bottom: 1rem;
+  }
+
+  .travel-tip {
+    margin: 5rem 0;
+  }
+  .before-go-container {
+    padding: 2rem 1rem;
+    gap: 2.5rem;
+  }
+  .before-go-info h5 {
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    padding-bottom: 1rem;
+  }
+}
+
+/* ---------- Large phones (< 768px) ---------- */
+@media (max-width: 767.98px) {
+  .our-story {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+  /* Bootstrap already stacks the columns here; tame the gutter and image */
+  .our-story .row {
+    --bs-gutter-y: 1.5rem;
+  }
+  .about-exit-image img {
+    height: auto;
+    max-height: 24rem;
+  }
+  .our-story-text {
+    text-align: left;
+  }
+}
+
+/* ---------- Phones (< 576px) ---------- */
+@media (max-width: 575.98px) {
+  .our-story-head,
+  .travel-tip-head,
+  .mission p {
+    font-size: 16px;
+  }
+  .our-story-text,
+  .before-go-info p {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .about-exit-image img {
+    max-height: 20rem;
+  }
+
+  .mission {
+    min-height: 14rem;
+    padding: 2.5rem 0;
+  }
+  .mission h4 {
+    padding: 0 1.25rem;
+  }
+
+  .travel-tip {
+    margin: 3rem 0;
+  }
+  .before-go-container {
+    padding: 1.5rem 0;
+    gap: 1rem;
+  }
+  .before-go-container .before-num {
+    flex-basis: 1.75rem;
+    width: 1.75rem;
+    font-size: 20px;
+  }
+}

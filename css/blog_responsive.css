@@ -1,0 +1,918 @@
+/* ==========================================================
+   blog_responsive.css
+   Responsive rules for the blog / tour page (blogs.css).
+   Selectors are prefixed with `body` so these rules win over blogs.css
+   whatever the load order. Still link it after blogs.css if you can:
+
+   <link rel="stylesheet" href="../css/blogs.css" />
+   <link rel="stylesheet" href="../css/blog_responsive.css" />
+
+   Breakpoints follow Bootstrap: 1199 (xl), 991 (lg), 767 (md),
+   575 (sm), 379 (xs).
+   ========================================================== */
+
+/* CHANGED (all screen sizes): the hero image starts right under the fixed
+   navbar with no gap. 64px is a little less than the navbar height, so it
+   tucks 3px under the navbar and no blue strip can show. */
+body .siemreap-header {
+  padding-top: 64px;
+}
+
+@media (max-width: 1199.98px) {
+  :root {
+    --header-text: 72px;
+    --text-header: 44px;
+  }
+
+  body .siemreap-header {
+    height: 720px;
+  }
+
+  body .siemreap-hero-title {
+    left: 5%;
+  }
+
+  body .siemreap-header-description {
+    font-size: 22px;
+    padding-right: 30%;
+  }
+
+  body .visit-exper-card {
+    width: calc(50% - 0.75rem);
+    height: auto;
+    min-height: 280px;
+    padding-bottom: 1.5rem;
+  }
+
+  body .place-cards {
+    width: calc(50% - 0.75rem);
+    height: auto;
+    padding-bottom: 1rem;
+  }
+
+  body .place-visit-title {
+    padding-right: 25%;
+  }
+
+  body .journey-title,
+  body .food-title,
+  body .feedback-text {
+    padding-right: 15%;
+  }
+
+  body .food-images {
+    padding: 0 !important;
+  }
+
+  body .hotel-image {
+    width: 100%;
+    height: 420px;
+  }
+
+  body .book-title,
+  body .book-desc {
+    padding: 0 15%;
+  }
+
+  body .book-btn {
+    margin: 0 35%;
+  }
+}
+
+@media (max-width: 991.98px) {
+  :root {
+    --header-text: 58px;
+    --text-header: 38px;
+  }
+
+  body .siemreap-header {
+    height: 680px;
+    position: relative;
+  }
+
+  body .siemreap-header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.55) 0%,
+      rgba(15, 23, 42, 0.25) 100%
+    );
+    pointer-events: none;
+  }
+
+  body .siemreap-hero-title {
+    top: 110px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  body .siemreap-header-description {
+    font-size: 20px;
+    padding-right: 10%;
+  }
+
+  body .siemreap-header-bottom .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* ADDED: bottom info bar text a bit smaller on tablets */
+  body .siemreap-btm-title,
+  body .siemreap-btm-text {
+    font-size: 14px;
+  }
+
+  body .siemreap-header-bottom .row > [class*="col-"] {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+    width: 33.3333%;
+  }
+
+  body .siemreap-visit-exper {
+    margin: 50px 0;
+  }
+
+  body .siemreap-visit-exper .px-5 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  body .visit-exper-sub-text.ps-5 {
+    padding-left: 0 !important;
+  }
+
+  body .visit-exper-card .ps-5 {
+    padding-left: 1.5rem !important;
+  }
+
+  body .visit-exper-card .px-5 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  body .visit-card-title {
+    font-size: 26px;
+  }
+
+  body .siemreap-journey {
+    padding: 30px 0;
+  }
+
+  body .journey-title {
+    padding-right: 0;
+  }
+
+  body .day-panel.active {
+    margin-top: 3rem;
+  }
+
+  body .tablet {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  body .tablet-side {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  body .tablet-text-title {
+    font-size: 2.4rem;
+  }
+
+  body .stop p {
+    max-width: 100%;
+  }
+
+  body .place-visit-title {
+    padding-right: 0;
+  }
+
+  body .place-image {
+    height: 240px;
+  }
+
+  body .food-title {
+    padding-right: 0;
+  }
+
+  body .food-title + .row > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  body .food-title + .row .food-info,
+  body .food-title + .row .food-images {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  body .food-title + .row .food-images {
+    margin-top: 2rem;
+    justify-content: center !important;
+  }
+
+  body .hotel-image + * {
+    margin: 0;
+  }
+
+  body .container > .row > [class*="col-"]:has(.hotel-image),
+  body .container > .row > [class*="col-"]:has(.hotel-title) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  body .hotel-image {
+    height: 340px;
+    border-radius: 10px;
+  }
+
+  body .hotel-title {
+    padding: 1.5rem 0 1rem;
+  }
+
+  body .hotel-desc {
+    padding: 0;
+  }
+
+  body .include-card > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  body .include-card .ps-5 {
+    padding-left: 0 !important;
+  }
+
+  body .include-card .include-head {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  body .include-card > [class*="col-"]:last-child {
+    padding-bottom: 2rem;
+  }
+
+  body .include-list {
+    font-size: 22px;
+  }
+
+  body .feedback-text {
+    padding-right: 0;
+  }
+
+  body .book-title,
+  body .book-desc {
+    padding: 0 8%;
+  }
+
+  body .book-btn {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  :root {
+    --blog-nav-h: 64px; /* just under the navbar height (576-767px) */
+    --header-text: 46px;
+    --text-header: 32px;
+    --sub-heading: 18px;
+  }
+
+  body .container.py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  body .container.my-5 {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* CHANGED: the image starts right under the navbar, no blue gap */
+  body .siemreap-header {
+    height: auto;
+    padding-top: var(--blog-nav-h);
+    position: relative;
+  }
+
+  /* CHANGED: image back to its natural size, shown full */
+  body .siemreap-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+  }
+
+  /* CHANGED: dark overlay on the image only, so the text stays readable */
+  body .siemreap-header::after {
+    display: block;
+    top: 0;
+  }
+
+  /* CHANGED: text displayed on the image like desktop */
+  /* ADDED: header image and hero text share one grid cell, so the text
+     is centered on the image whatever the image height is */
+  :has(> .siemreap-header + .siemreap-hero-title) {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+
+  body .siemreap-header,
+  body .siemreap-hero-title {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  /* CHANGED: all text centered vertically on the image */
+  body .siemreap-hero-title {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    margin-top: var(--blog-nav-h); /* keeps the text below the navbar */
+    align-self: center;
+    padding: 0 1.25rem;
+    overflow-wrap: break-word;
+  }
+
+  /* CHANGED: smaller hero title (was too big) */
+  body .siemreap-header-title {
+    font-size: clamp(20px, 6vw, 28px) !important;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    margin-bottom: 0;
+  }
+
+  /* CHANGED: heading text and button stay side by side (no wrap) */
+  body .siemreap-hero-title > .d-flex {
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+
+  /* CHANGED: smaller hero texts */
+  body .siemreap-header-text {
+    font-size: 14px !important;
+    min-width: 0;
+    line-height: 1.25;
+  }
+
+  body .siemreap-header-text-btn {
+    font-size: 11px !important;
+    padding: 6px 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  body .siemreap-header-sub-text {
+    font-size: 12px !important;
+    margin-top: 0.4rem !important;
+    margin-bottom: 0.4rem;
+  }
+
+  /* CHANGED: description hidden on phones so the text fits on the image */
+  body .siemreap-header-description {
+    display: none;
+  }
+
+  /* ADDED: smaller section headings and body text */
+  body .visit-exper-title,
+  body .journey-title,
+  body .place-visit-title,
+  body .food-title,
+  body .include-title,
+  body .feedback-text,
+  body .book-title {
+    font-size: 24px !important;
+    padding-right: 0 !important;
+  }
+
+  body .visit-exper-sub-text,
+  body .journey-sub-text,
+  body .tablet-sub-text,
+  body .book-desc {
+    font-size: 15px !important;
+  }
+
+  body .siemreap-header-bottom .row > [class*="col-"] {
+    flex: 0 0 50%;
+    max-width: 50%;
+    width: 50%;
+  }
+
+  /* CHANGED: bottom info bar (duration, location...) 15px -> 12px */
+  body .siemreap-btm-title,
+  body .siemreap-btm-text {
+    font-size: 12px;
+  }
+
+  body .siemreap-btm-title {
+    padding-top: 0.6rem !important;
+    margin-bottom: 0.2rem;
+  }
+
+  body .visit-exper-card {
+    width: 100%;
+    min-height: 0;
+  }
+
+  /* CHANGED: 24px -> 20px */
+  body .visit-card-title {
+    font-size: 20px !important;
+  }
+
+  /* ADDED */
+  body .visit-card-desription {
+    font-size: 14px !important;
+  }
+
+  body .days-buttons {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 30px;
+  }
+
+  body .day-btn {
+    padding: 0.25rem 0;
+  }
+
+  body .day-btn .px-4 {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
+
+  body .day-btn-title {
+    font-size: 16px;
+    margin-bottom: 0.25rem;
+  }
+
+  body .day-btn-sub-text {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  body .tablet-text-title {
+    font-size: 2rem;
+  }
+
+  body .stop h4 {
+    font-size: 1.5rem;
+  }
+
+  body .stop p {
+    font-size: 1rem;
+  }
+
+  body .place-cards {
+    width: 100%;
+  }
+
+  body .place-image {
+    height: 220px;
+  }
+
+  body .place-cards h3 {
+    font-size: 24px;
+  }
+
+  body .place-visit-title + .d-flex {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  body .food-name {
+    font-size: 21px;
+  }
+
+  body .food-image {
+    width: calc(33.333% - 0.7rem);
+    height: 110px;
+  }
+
+  body .hotel-image {
+    height: 280px;
+  }
+
+  body .book-title,
+  body .book-desc {
+    padding: 0;
+  }
+
+  body .book-btn {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 340px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  :root {
+    --blog-nav-h: 58px; /* just under the navbar height (phones) */
+    --header-text: 36px;
+    --text-header: 28px;
+    --sub-heading: 16px;
+  }
+
+  /* DELETED: fixed height 280px on .siemreap-header (image now auto-fits) */
+
+  body .visit-exper-title br {
+    display: none;
+  }
+
+  /* ADDED: bottom info bar text smaller on phones */
+  body .siemreap-btm-title,
+  body .siemreap-btm-text {
+    font-size: 11px;
+  }
+
+  body .siemreap-header-description {
+    font-size: 14px !important;
+  }
+
+  body .visit-exper-card .ps-5 {
+    padding-left: 1.25rem !important;
+  }
+
+  body .visit-exper-card .px-5 {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  body .visit-card-title {
+    font-size: 20px !important;
+  }
+
+  body .tablet-text-title {
+    font-size: 1.7rem;
+  }
+
+  body .stop h4 {
+    font-size: 1.3rem;
+  }
+
+  body .stop .time {
+    font-size: 0.85rem;
+  }
+
+  body .place-image {
+    height: 200px;
+  }
+
+  body .food-name {
+    font-size: 19px;
+  }
+
+  body .food-desc {
+    font-size: 11px;
+  }
+
+  body .food-image {
+    height: 95px;
+  }
+
+  body .hotel-image {
+    height: 230px;
+  }
+
+  body .include-card > [class*="col-"] {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  body .include-list {
+    font-size: 18px;
+  }
+
+  body .include-card .d-flex.gap-5 {
+    gap: 1rem !important;
+  }
+
+  body .book-btn span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 379.98px) {
+  :root {
+    --header-text: 30px;
+    --text-header: 24px;
+  }
+
+  /* DELETED: fixed height 260px on .siemreap-header (image now auto-fits) */
+
+  /* CHANGED: 14px -> 13px */
+  body .siemreap-header-description {
+    font-size: 13px !important;
+  }
+
+  body .day-btn-sub-text {
+    font-size: 11px;
+  }
+
+  /* ADDED: bottom info bar text on very small phones */
+  body .siemreap-btm-title,
+  body .siemreap-btm-text {
+    font-size: 10px;
+  }
+
+  body .food-image {
+    width: calc(50% - 0.5rem);
+    height: 110px;
+  }
+
+  body .include-list {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body .place-text-card {
+    font-size: 16px;
+  }
+}
+
+/* ==========================================================
+   ADDED: fluid text sizes on tablets and phones (< 992px)
+   Every title / description gets a bit smaller as the screen shrinks.
+   Format: clamp(smallest, follows-screen-width, biggest)
+   This block is last on purpose, so it wins over the fixed sizes above.
+   To make a text bigger/smaller, change the numbers in its clamp().
+   ========================================================== */
+@media (max-width: 991.98px) {
+  /* hero text on the image */
+  body .siemreap-header-text {
+    font-size: clamp(12px, 3.3vw, 20px) !important;
+  }
+  body .siemreap-header-text-btn {
+    font-size: clamp(10px, 2.6vw, 14px) !important;
+  }
+  body .siemreap-header-sub-text {
+    font-size: clamp(10px, 2.8vw, 16px) !important;
+  }
+  body .siemreap-header-title {
+    font-size: clamp(18px, 5vw, 44px) !important;
+  }
+  body .siemreap-header-description {
+    font-size: clamp(13px, 2.2vw, 20px) !important;
+  }
+
+  /* small section labels */
+  body .visit-experience,
+  body .journey-header,
+  body .place-header,
+  body .food-header,
+  body .include-text,
+  body .feedback,
+  body .book-text {
+    font-size: clamp(10px, 1.6vw, 13px);
+  }
+
+  /* section titles */
+  body .visit-exper-title,
+  body .journey-title,
+  body .place-visit-title,
+  body .food-title,
+  body .include-title,
+  body .feedback-text,
+  body .book-title,
+  body .hotel-title {
+    font-size: clamp(18px, 4.2vw, 34px) !important;
+  }
+
+  /* descriptions */
+  body .visit-exper-sub-text,
+  body .journey-sub-text,
+  body .tablet-sub-text,
+  body .book-desc,
+  body .hotel-desc {
+    font-size: clamp(12px, 2vw, 18px) !important;
+  }
+
+  /* "what you'll experience" cards */
+  body .visit-card-num {
+    font-size: clamp(12px, 2vw, 16px);
+  }
+  body .visit-card-title {
+    font-size: clamp(16px, 3vw, 24px) !important;
+  }
+  body .visit-card-desription {
+    font-size: clamp(12px, 1.9vw, 16px) !important;
+  }
+
+  /* journey tabs and stops */
+  body .day-btn-title {
+    font-size: clamp(12px, 2.2vw, 18px);
+  }
+  body .day-btn-sub-text {
+    font-size: clamp(9px, 1.6vw, 13px);
+  }
+  body .tablet-text-title {
+    font-size: clamp(18px, 4.5vw, 32px);
+  }
+  body .stop .time {
+    font-size: clamp(10px, 1.7vw, 14px);
+  }
+  body .stop h4 {
+    font-size: clamp(15px, 3vw, 22px);
+  }
+  body .stop p {
+    font-size: clamp(12px, 2vw, 16px);
+  }
+
+  /* places you'll visit */
+  body .place-cards h3 {
+    font-size: clamp(16px, 3.2vw, 24px);
+  }
+  body .place-text-card {
+    font-size: clamp(12px, 2vw, 16px);
+  }
+
+  /* local food */
+  body .food-name {
+    font-size: clamp(14px, 2.8vw, 22px);
+  }
+  body .food-desc {
+    font-size: clamp(9px, 1.6vw, 12px);
+  }
+
+  /* what's included */
+  body .include-list {
+    font-size: clamp(13px, 2.6vw, 20px);
+  }
+
+  /* booking button */
+  body .book-btn span {
+    font-size: clamp(11px, 2vw, 14px);
+  }
+}
+
+/* ==========================================================
+   ADDED: TABLET ONLY  (768px – 1199px, e.g. iPad / iPad Pro)
+   Everything ABOVE this line is your code, unchanged.
+   Phones (< 768px) and desktop (>= 1200px) are NOT affected.
+   ========================================================== */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  /* hero image + hero text share ONE grid cell (same trick you use on phones),
+     so the image grows with the text and the text always stays on the image */
+  :has(> .siemreap-header + .siemreap-hero-title) {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  body .siemreap-header,
+  body .siemreap-hero-title {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  body .siemreap-header {
+    height: auto;
+    padding-top: 0;
+    position: relative;
+  }
+
+  /* image fills the whole hero and fits any tablet size */
+  body .siemreap-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+    display: block;
+  }
+
+  body .siemreap-header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.55) 0%,
+      rgba(15, 23, 42, 0.3) 100%
+    );
+    pointer-events: none;
+  }
+
+  body .siemreap-hero-title {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    z-index: 2;
+    width: 100%;
+    min-height: clamp(460px, 52vw, 640px);
+    padding: calc(64px + 2rem) 2rem 2.5rem;
+    align-self: stretch;
+  }
+
+  /* tablet hero text sizes — change the numbers in clamp(smallest, follows-width, biggest) */
+  body .siemreap-header-text {
+    font-size: clamp(13px, 1.6vw, 18px) !important;
+  }
+  body .siemreap-header-text-btn {
+    font-size: clamp(11px, 1.3vw, 15px) !important;
+  }
+  body .siemreap-header-sub-text {
+    font-size: clamp(12px, 1.5vw, 17px) !important;
+  }
+  body .siemreap-header-title {
+    font-size: clamp(30px, 4.3vw, 54px) !important;
+    line-height: 1.15;
+  }
+  body .siemreap-header-description {
+    font-size: clamp(14px, 1.7vw, 21px) !important;
+    padding-right: 25%;
+  }
+
+  /* info bar: one row, text fits each column */
+  body .siemreap-header-bottom .row > [class*="col-"] {
+    flex: 1 1 0;
+    max-width: none;
+    width: auto;
+    min-width: 0;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+  body .siemreap-btm-title,
+  body .siemreap-btm-text {
+    font-size: clamp(10px, 1.45vw, 16px);
+  }
+}
+
+/* tablet landscape (992px – 1199px): your fluid text block stops at 991px,
+   so these keep the page text from looking too big on iPad Pro */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  body .visit-exper-title,
+  body .journey-title,
+  body .place-visit-title,
+  body .food-title,
+  body .include-title,
+  body .feedback-text,
+  body .book-title,
+  body .hotel-title {
+    font-size: clamp(26px, 3.5vw, 40px) !important;
+  }
+
+  body .visit-exper-sub-text,
+  body .journey-sub-text,
+  body .tablet-sub-text,
+  body .book-desc,
+  body .hotel-desc {
+    font-size: clamp(14px, 1.6vw, 18px) !important;
+  }
+
+  body .visit-card-title {
+    font-size: clamp(20px, 2.4vw, 26px) !important;
+  }
+  body .visit-card-desription {
+    font-size: clamp(14px, 1.6vw, 17px) !important;
+  }
+
+  body .tablet-text-title {
+    font-size: clamp(28px, 3.4vw, 40px);
+  }
+  body .stop h4 {
+    font-size: clamp(20px, 2.4vw, 26px);
+  }
+  body .stop p {
+    font-size: clamp(14px, 1.6vw, 17px);
+  }
+
+  body .place-cards h3 {
+    font-size: clamp(20px, 2.4vw, 26px);
+  }
+  body .place-text-card {
+    font-size: clamp(14px, 1.6vw, 17px);
+  }
+
+  body .food-name {
+    font-size: clamp(18px, 2.2vw, 24px);
+  }
+  body .include-list {
+    font-size: clamp(18px, 2.2vw, 24px);
+  }
+}

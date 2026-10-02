@@ -1,0 +1,335 @@
+/* ==========================================================
+   contact_responsive.css
+   Responsive rules for the Contact page (contact.css).
+   Breakpoints: 1199 (xl), 991 (lg), 767 (md), 575 (sm), 379 (xs).
+
+   Every selector is scoped with body:has(#contactHero), so:
+   - it only affects the contact page (safe to load site-wide)
+   - it beats contact.css / service.css whatever the load order
+
+   Load it ONE of these ways:
+   A) in contact.html, after contact.css:
+      <link rel="stylesheet" href="../css/contact_responsive.css" />
+   B) in style.css, next to the other responsive imports:
+      @import url("contact_responsive.css");
+   ========================================================== */
+
+/* ---------- Laptops / small desktops (< 1200px) ---------- */
+@media (max-width: 1199.98px) {
+  :root:has(#contactHero) {
+    --text-header: 44px;
+  }
+
+  /* Hero (markup comes from page_hero) */
+  body:has(#contactHero) .contact-hero {
+    height: 700px;
+  }
+
+  /* Map */
+  body:has(#contactHero) .map iframe {
+    height: 500px;
+  }
+
+  /* Form: fluid instead of fixed 450px / 500px */
+  body:has(#contactHero) .contact-card {
+    height: auto;
+    padding-bottom: 2rem;
+  }
+  body:has(#contactHero) .contact-sub-text {
+    padding-right: 30%;
+  }
+  body:has(#contactHero) .info-text {
+    width: 100%;
+  }
+  body:has(#contactHero) .message-card {
+    width: 100%;
+  }
+
+  /* Contact details */
+  body:has(#contactHero) .contact-detail {
+    height: auto;
+    padding-bottom: 2rem;
+  }
+  body:has(#contactHero) .contact-detail-sub-text {
+    padding-right: 30%;
+  }
+  body:has(#contactHero) .contact-information {
+    width: 100%;
+  }
+  body:has(#contactHero) .contact-detail-card-text {
+    width: auto;
+    margin-left: 2rem;
+    margin-right: 1rem;
+  }
+  body:has(#contactHero) .talk-w-us {
+    font-size: 56px;
+  }
+  body:has(#contactHero) .traveller {
+    height: 420px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  body:has(#contactHero) .traveller-image {
+    padding-right: 1rem !important;
+  }
+}
+
+/* ---------- Tablets & below (< 992px) ---------- */
+@media (max-width: 991.98px) {
+  :root:has(#contactHero) {
+    --text-header: 38px;
+  }
+
+  body:has(#contactHero) .contact-hero {
+    height: 620px;
+  }
+  body:has(#contactHero) .com-location {
+    margin-top: 60px;
+  }
+  body:has(#contactHero) .map iframe {
+    height: 450px;
+  }
+
+  /* Form: stack inputs and message */
+  body:has(#contactHero) .contact-info {
+    margin-top: 40px;
+  }
+  body:has(#contactHero) .contact-card .row > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+  body:has(#contactHero) .message {
+    margin-top: 1.5rem;
+  }
+  body:has(#contactHero) .message-card {
+    height: 240px;
+  }
+  body:has(#contactHero) .submit {
+    padding-right: 0;
+  }
+
+  /* Contact details: stack text and image */
+  body:has(#contactHero) .contact-detail .row > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+  body:has(#contactHero) .contact-detail .m-5 {
+    margin: 1rem 1rem 0 !important;
+  }
+  body:has(#contactHero) .contact-detail-card-text {
+    width: calc(100% - 2rem);
+    max-width: 450px;
+    margin: 0 auto 1rem;
+  }
+  body:has(#contactHero) .traveller-image {
+    justify-content: center !important;
+    padding: 0 !important;
+    margin-top: 1.5rem;
+  }
+  body:has(#contactHero) .traveller {
+    height: 380px;
+  }
+}
+
+/* ---------- Large phones (< 768px) ---------- */
+@media (max-width: 767.98px) {
+  :root:has(#contactHero) {
+    --text-header: 32px;
+    --sub-heading: 18px;
+  }
+
+  /* CHANGED: hero image fits the screen (full, not cropped) and sits
+     just below the navbar; the hero text is centered on the image.
+     72px = navbar height on phones. Change both 72px if yours differs. */
+  body:has(#contactHero) .contact-hero {
+    height: auto;
+    min-height: 0;
+    padding-top: 72px;
+    padding-bottom: 0;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+  body:has(#contactHero) .contact-hero .hero-image-container {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+  }
+  body:has(#contactHero) .contact-hero .home-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  body:has(#contactHero) .contact-hero .hero-text {
+    position: absolute;
+    top: 72px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* ADDED: smaller hero text so it fits on the image */
+  body:has(#contactHero) .contact-hero .head-text {
+    font-size: 26px !important;
+  }
+  body:has(#contactHero) .contact-hero .sub-hero-text {
+    font-size: 16px !important;
+  }
+  body:has(#contactHero) .contact-hero .sub1-hero-text {
+    font-size: 13px !important;
+    line-height: 1.4;
+    padding-top: 0.5rem;
+    margin-bottom: 0;
+  }
+  body:has(#contactHero) .contact-hero .hero-buttons {
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding-top: 0;
+    margin-top: 0.75rem;
+    max-width: none;
+  }
+  body:has(#contactHero) .contact-hero .btn-about,
+  body:has(#contactHero) .contact-hero .btn-book {
+    width: auto;
+    max-width: none;
+    height: 34px;
+    padding: 0 16px;
+    font-size: 13px;
+    margin: 0 !important;
+  }
+
+  /* Map */
+  body:has(#contactHero) .com-location {
+    margin-top: 40px;
+  }
+  body:has(#contactHero) .map {
+    margin: 24px 0;
+  }
+  body:has(#contactHero) .map iframe {
+    height: 380px;
+  }
+
+  /* Form card */
+  body:has(#contactHero) .contact-card {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  body:has(#contactHero) .contact-title,
+  body:has(#contactHero) .contact-detail-title {
+    padding: 24px 1rem 0;
+  }
+  body:has(#contactHero) .contact-sub-text,
+  body:has(#contactHero) .contact-detail-sub-text {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  body:has(#contactHero) .contact-info {
+    margin-top: 30px;
+  }
+  body:has(#contactHero) .info-text {
+    height: 60px;
+  }
+
+  /* Contact details */
+  body:has(#contactHero) .contact-detail {
+    margin-bottom: 2.5rem;
+  }
+  body:has(#contactHero) .contact-detail-title-sub {
+    font-size: 20px;
+    overflow-wrap: anywhere;
+  }
+  body:has(#contactHero) .contact-information > .d-block {
+    min-width: 0;
+  }
+  body:has(#contactHero) .contact-detail-card-text {
+    height: auto;
+    min-height: 80px;
+  }
+  body:has(#contactHero) .talk-w-us {
+    font-size: 44px;
+  }
+  body:has(#contactHero) .traveller {
+    height: 320px;
+  }
+}
+
+/* ---------- Phones (< 576px) ---------- */
+@media (max-width: 575.98px) {
+  :root:has(#contactHero) {
+    --text-header: 28px;
+    --sub-heading: 16px;
+  }
+
+  /* DELETED: .contact-hero min-height 520px (image now sets the height) */
+  body:has(#contactHero) .map iframe {
+    height: 320px;
+  }
+
+  /* Form */
+  body:has(#contactHero) .info-text {
+    height: 52px;
+    padding: 0 14px;
+  }
+  body:has(#contactHero) .message-card {
+    height: 200px;
+    padding: 14px;
+  }
+  body:has(#contactHero) .submit {
+    justify-content: center !important;
+  }
+  body:has(#contactHero) .submit-btn {
+    width: 100%;
+  }
+
+  /* Contact details */
+  body:has(#contactHero) .contact-detail .m-5 {
+    margin: 0.5rem 0 0 !important;
+  }
+  body:has(#contactHero) .contact-information {
+    gap: 1rem !important;
+  }
+  body:has(#contactHero) .contact-detail-title-sub {
+    font-size: 16px;
+  }
+  body:has(#contactHero) .talk-w-us {
+    font-size: 36px;
+  }
+  body:has(#contactHero) .traveller {
+    height: 260px;
+  }
+}
+
+/* ---------- Small phones (< 380px) ---------- */
+@media (max-width: 379.98px) {
+  :root:has(#contactHero) {
+    --text-header: 24px;
+  }
+
+  body:has(#contactHero) .contact-hero .head-text {
+    font-size: 22px !important;
+  }
+  body:has(#contactHero) .contact-hero .sub1-hero-text {
+    font-size: 12px !important;
+  }
+  body:has(#contactHero) .contact-detail-title-sub {
+    font-size: 15px;
+  }
+  body:has(#contactHero) .talk-w-us {
+    font-size: 32px;
+  }
+  body:has(#contactHero) .traveller {
+    height: 220px;
+  }
+}

@@ -1,0 +1,112 @@
+<header class="container-fluid nav-bar my-nav fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark py-2">
+    <div class="container">
+      <a class="navbar-brand d-flex gap-3 align-items-center" href="../index.html">
+        <img
+          src="../asset/image/logo/Logo2(1).webp"
+          alt="Explore Cambodia Logo"
+          class="rounded-pill nav-image"
+        />
+        <h3 class="text-white com-name">Explore <span class="cambodia">Cambodia</span></h3>
+      </a>
+
+      <!-- CHANGED: the button now opens the side drawer below (offcanvas) -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#exploreCambodiaDrawer"
+        aria-controls="exploreCambodiaDrawer"
+        aria-label="Open menu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Desktop menu (only visible on large screens, unchanged) -->
+      <div class="collapse navbar-collapse justify-content-end" id="exploreCambodiaNavbar">
+        <ul class="navbar-nav gap-lg-2 align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link active pg-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pg-link" href="../Pages/about-me.html">About us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle pg-link"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >Blogs</a
+            >
+            <ul class="dropdown-menu dropdown-menu-lg-end">
+              <li><a class="dropdown-item" href="../Pages/siemreap.html">Siem Reap Tour</a></li>
+              <li><a class="dropdown-item" href="../Pages/kompot.html">Kompot Tour</a></li>
+              <li><a class="dropdown-item" href="../Pages/mondulkiri.html">Mondulkiri Tour</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pg-link" href="../Pages/service.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pg-link" href="../Pages/contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ADDED: mobile drawer. Slides in from the RIGHT, full screen height, width
+     follows the text. The X closes it, and so does a click anywhere outside
+     it (the dark area). It sits OUTSIDE the header on purpose so the dark
+     backdrop can cover the navbar too. -->
+<div
+  class="offcanvas offcanvas-end nav-drawer d-lg-none"
+  tabindex="-1"
+  id="exploreCambodiaDrawer"
+  aria-label="Menu"
+>
+  <div class="offcanvas-header">
+    <button
+      type="button"
+      class="btn-close btn-close-white"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <nav class="navbar navbar-dark p-0 d-block">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active pg-link" href="../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pg-link" href="../Pages/about-me.html">About us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle pg-link"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            >Blogs</a
+          >
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../Pages/siemreap.html">Siem Reap Tour</a></li>
+            <li><a class="dropdown-item" href="../Pages/kompot.html">Kompot Tour</a></li>
+            <li><a class="dropdown-item" href="../Pages/mondulkiri.html">Mondulkiri Tour</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pg-link" href="../Pages/service.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pg-link" href="../Pages/contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

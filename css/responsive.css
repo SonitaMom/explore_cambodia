@@ -1,0 +1,399 @@
+/* All responsive rules live here.
+   Breakpoints follow Bootstrap: 1199 (xl), 991 (lg), 767 (md), 575 (sm).
+   index.html links this file AFTER style.css so it wins the cascade. */
+
+/* ---------- Laptops / small desktops (< 1200px) ---------- */
+@media (max-width: 1199.98px) {
+  :root {
+    --cd-radius: 48px;
+  }
+  .tour-card-items,
+  .choose-us-cards,
+  .review-card-item {
+    max-width: 340px;
+  }
+  .pg-link {
+    padding: 0.5rem 0.75rem !important;
+  }
+}
+
+/* ---------- Tablets & below (< 992px) ---------- */
+@media (max-width: 991.98px) {
+  /* DELETED: the old .navbar-collapse mobile panel rules
+     (the menu is now a left drawer, see "Navbar drawer" below) */
+  .pg-link {
+    display: inline-block;
+    padding: 0.6rem 0.25rem !important;
+  }
+  .dropdown-menu {
+    background-color: transparent;
+    border: 0;
+  }
+
+  .hero-header {
+    min-height: 75vh;
+  }
+  .hero-buttons {
+    margin: 1.5rem 0 !important;
+    gap: 1rem !important;
+  }
+  .hero-image-container::after {
+    background: linear-gradient(
+      to right,
+      rgba(15, 23, 42, 0.95) 0%,
+      rgba(15, 23, 42, 0.8) 55%,
+      rgba(15, 23, 42, 0.55) 100%
+    );
+  }
+
+  .review-section {
+    padding: 4rem 0;
+  }
+  .choose-us-cards {
+    min-height: 380px;
+  }
+}
+
+/* ---------- Large phones (< 768px) ---------- */
+@media (max-width: 767.98px) {
+  :root {
+    --cd-radius: 40px;
+  }
+  .hero-header {
+    min-height: 70vh;
+    padding-top: 76px;
+  }
+  .hero-text {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .tour-card-items,
+  .choose-us-cards,
+  .review-card-item {
+    max-width: 420px;
+  }
+  .tour-image {
+    height: 240px;
+  }
+  .review-section {
+    padding: 3rem 0;
+  }
+  .footer-inner {
+    padding: 3rem 0 1.5rem;
+  }
+  .footer-text {
+    max-width: 480px;
+  }
+  .contact-item {
+    justify-content: center;
+  }
+}
+
+/* ---------- Phones (< 576px) ---------- */
+@media (max-width: 575.98px) {
+  .nav-image {
+    width: 40px;
+    height: 40px;
+  }
+  .com-name {
+    font-size: 1.2rem;
+  }
+
+  .hero-header {
+    min-height: 100svh;
+    align-items: center;
+  }
+  .hero-image-container::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.85) 0%,
+      rgba(15, 23, 42, 0.7) 100%
+    );
+  }
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-about,
+  .btn-book {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .tour-card-items,
+  .choose-us-cards,
+  .review-card-item {
+    max-width: 100%;
+    border-radius: var(--cd1-radius) !important;
+  }
+  .tour-image {
+    height: 220px;
+    border-radius: var(--cd1-radius) var(--cd1-radius) 0 0;
+  }
+  .tour-card-btns {
+    flex-direction: column;
+  }
+  .tour-card-btns a {
+    width: 100%;
+    flex: none;
+  }
+
+  /* <br> in headings gives awkward wraps on narrow screens */
+  .choose-us-title br {
+    display: none;
+  }
+  .traveller-img {
+    width: 140px;
+    height: 140px;
+  }
+  .footer-logo-img {
+    width: 84px;
+    height: 84px;
+  }
+  .footer-bottom {
+    text-align: center;
+  }
+}
+
+/* ---------- Small phones (< 380px) ---------- */
+@media (max-width: 379.98px) {
+  .com-name {
+    font-size: 1rem;
+  }
+  .choose-us-text-cards {
+    font-size: 19px;
+  }
+  .card-title {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* ==========================================================
+   Navbar drawer (CHANGED)
+   Small devices: the hamburger button opens a drawer that slides in
+   from the RIGHT. Full screen height, width follows the text.
+   The X closes it, and a click anywhere outside it closes it too.
+   Needs the markup from navbar.html.
+   ========================================================== */
+@media (max-width: 991.98px) {
+  /* the header sits BELOW the drawer and its dark backdrop, so a click
+     anywhere outside the drawer (even on the navbar) closes it */
+  header.my-nav {
+    z-index: 1030;
+  }
+
+  /* the hamburger icon was inverted to black; keep it white */
+  .my-nav .navbar-toggler-icon {
+    filter: none;
+  }
+}
+
+/* the drawer itself */
+.nav-drawer.offcanvas-end {
+  width: max-content; /* as wide as the text needs */
+  min-width: 200px;
+  max-width: 85vw;
+  background-color: var(--bg-color);
+  border-left: 3px solid var(--line-color);
+}
+.nav-drawer .offcanvas-header {
+  justify-content: flex-end; /* the X sits top right, where the button was */
+  padding: 0.75rem 1rem;
+}
+.nav-drawer .offcanvas-body {
+  padding: 0 1.5rem 1.5rem;
+}
+.nav-drawer .pg-link {
+  display: block;
+  padding: 0.75rem 0 !important;
+  white-space: nowrap;
+}
+.nav-drawer .dropdown-menu {
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+  padding-left: 1rem;
+}
+.nav-drawer .dropdown-item {
+  padding-left: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 575.98px) {
+  /* keep logo, name and hamburger on ONE row so the navbar stays slim */
+  .my-nav .navbar > .container {
+    flex-wrap: nowrap;
+  }
+  .my-nav .com-name {
+    font-size: 1.15rem;
+  }
+  .my-nav .nav-image {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ==========================================================
+   Home hero on small devices (ADDED)
+   The full-image layout is in style.css ("Home hero" section).
+   Under 992px the image still fits the screen width and the text and
+   buttons get smaller, following the screen width (vw).
+   The #about.hero-header selectors win over the hero rules above.
+   ========================================================== */
+@media (max-width: 991.98px) {
+  #about.hero-header .hero-text {
+    overflow: hidden;
+  }
+  #about.hero-header .head-text {
+    font-size: clamp(22px, 5.6vw, 52px);
+    margin: 0 !important;
+  }
+  #about.hero-header .sub-hero-text {
+    font-size: clamp(13px, 2.4vw, 24px);
+    margin-top: 0.4vw;
+  }
+  #about.hero-header .sub1-hero-text {
+    font-size: clamp(11px, 1.9vw, 18px);
+    line-height: 1.35;
+    margin-bottom: 0;
+  }
+  #about.hero-header .btn-about,
+  #about.hero-header .btn-book {
+    max-width: clamp(110px, 15vw, 230px);
+    height: clamp(32px, 3.4vw, 52px);
+    font-size: clamp(12px, 1.2vw, 18px);
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* navbar height on tablets / large phones */
+  #about.hero-header {
+    --home-nav-h: 67px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* slimmer navbar on phones */
+  #about.hero-header {
+    --home-nav-h: 62px;
+  }
+  /* hide the small "Explore cambodia" line so everything fits */
+  #about.hero-header .sub-hero-text {
+    display: none;
+  }
+}
+
+/* ==========================================================
+   HOME PAGE: TABLET ONLY  (ADDED)
+   Paste this at the very BOTTOM of responsive.css.
+   Nothing above it changes. Phones (< 768px) and desktop
+   (>= 1200px) are NOT affected.
+   ========================================================== */
+
+/* ---- Tablet landscape (992px - 1199px, e.g. iPad Pro) ----
+   Your hero text rules stop at 991px, so here the hero text is
+   sized to fit the image, and the 3-column cards (about 296px wide)
+   get slightly smaller text so nothing wraps awkwardly. */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* hero text on the image */
+  #about.hero-header .hero-text {
+    overflow: hidden;
+  }
+  #about.hero-header .head-text {
+    font-size: clamp(34px, 4.6vw, 56px);
+    margin: 0 !important;
+  }
+  #about.hero-header .sub-hero-text {
+    font-size: clamp(18px, 2.3vw, 28px);
+  }
+  #about.hero-header .sub1-hero-text {
+    font-size: clamp(14px, 1.8vw, 22px);
+    line-height: 1.35;
+    margin-bottom: 0;
+  }
+  #about.hero-header .hero-buttons {
+    margin-top: 1rem;
+    gap: 0.75rem !important;
+  }
+  #about.hero-header .btn-about,
+  #about.hero-header .btn-book {
+    max-width: clamp(150px, 19vw, 210px);
+    height: clamp(40px, 4.2vw, 50px);
+    font-size: clamp(14px, 1.6vw, 17px);
+  }
+
+  /* tour cards: title + stars stay on one line */
+  .tour-card-items .card-body {
+    padding: 1.1rem !important;
+  }
+  .tour-card-items .card-title {
+    font-size: 17px;
+  }
+  .tour-rating-stars {
+    font-size: 13px;
+    gap: 2px;
+  }
+  .tour-card-items .card-text {
+    font-size: 16px;
+  }
+  .tour-card-btns {
+    gap: 0.6rem !important;
+  }
+  .tour-card-btns a {
+    font-size: 14px;
+    height: 44px;
+  }
+
+  /* "why choose us" cards */
+  .choose-us-hero-cards {
+    padding: 1.1rem 1.25rem 0.4rem !important;
+  }
+  .choose-us-heading-cards {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+  .choose-us-icons {
+    width: 36px;
+    height: 36px;
+  }
+  .choose-us-text-cards {
+    font-size: 19px;
+  }
+  .choose-us-cards .card-text {
+    font-size: 16px;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+  .underline {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+  .service-view-btn {
+    font-size: 16px;
+    height: 42px;
+    margin: 0 1.25rem;
+  }
+}
+
+/* ---- Tablet portrait (768px - 991px, e.g. iPad) ----
+   2 cards per row: just trim the card text a little. */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .tour-card-items .card-title {
+    font-size: 18px;
+  }
+  .tour-card-items .card-text {
+    font-size: 17px;
+  }
+  .choose-us-text-cards {
+    font-size: 20px;
+  }
+  .choose-us-cards .card-text {
+    font-size: 17px;
+  }
+}
